@@ -181,14 +181,14 @@ const ProductPage = () => {
                 ADD TO CART
               </Button>
               
-              <div className="flex space-x-4">
+              {/* <div className="flex space-x-4">
                 <Button variant="outline" size="icon">
                   <Heart className="h-4 w-4" />
                 </Button>
                 <Button variant="outline" size="icon">
                   <Share2 className="h-4 w-4" />
                 </Button>
-              </div>
+              </div> */}
             </div>
 
             {/* Product Features */}

@@ -77,7 +77,7 @@ const Index = () => {
       <Hero />
       
       {/* Promotional Banner */}
-      <Banner 
+      {/* <Banner 
         title="NEW SEASON"
         subtitle="SPRING 2024"
         description="Fresh styles for the season ahead. Discover contemporary pieces that define modern elegance."
@@ -85,7 +85,7 @@ const Index = () => {
         backgroundImage="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80"
         textColor="text-white"
         onButtonClick={() => console.log('Shop now clicked')}
-      />
+      /> */}
 
       {/* New Arrivals */}
       <ProductGrid products={newArrivals} />

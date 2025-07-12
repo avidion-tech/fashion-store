@@ -52,13 +52,13 @@ const BestSellers: React.FC<BestSellersProps> = ({ products }) => {
                 )}
                 
                 {/* Hover Image */}
-                {product.images[1] && (
+                {/* {product.images[1] && (
                   <img
                     src={product.images[1]}
                     alt={product.name}
                     className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   />
-                )}
+                )} */}
               </div>
 
               {/* Product Info */}

@@ -1,56 +1,56 @@
-import React, { useState, useMemo } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useToast } from '@/hooks/use-toast';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ProductFilters from '@/components/ProductFilters';
-import Cart from '@/components/Cart';
-import { 
-  getProductsByCategory, 
-  getNewArrivals, 
-  getSaleItems, 
+import React, { useState, useMemo } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ProductFilters from "@/components/ProductFilters";
+import Cart from "@/components/Cart";
+import {
+  getProductsByCategory,
+  getNewArrivals,
+  getSaleItems,
   getSubcategories,
   filterProducts,
-  sortProducts
-} from '@/data/products';
-import { Product, CartItem } from '@/types/Product';
+  sortProducts,
+} from "@/data/products";
+import { Product, CartItem } from "@/types/Product";
 
 const CategoryPage = () => {
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
-  
-  console.log('CategoryPage - Current category:', category);
-  
+
+  console.log("CategoryPage - Current category:", category);
+
   // State for filters and cart
-  const [selectedSubcategory, setSelectedSubcategory] = useState('');
-  const [selectedPriceRange, setSelectedPriceRange] = useState('');
-  const [selectedSize, setSelectedSize] = useState('');
-  const [selectedColor, setSelectedColor] = useState('');
-  const [sortBy, setSortBy] = useState('newest');
+  const [selectedSubcategory, setSelectedSubcategory] = useState("");
+  const [selectedPriceRange, setSelectedPriceRange] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [sortBy, setSortBy] = useState("newest");
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   // Get products based on category
   const allProducts = useMemo(() => {
     if (!category) return [];
-    
-    console.log('Getting products for category:', category);
-    
+
+    console.log("Getting products for category:", category);
+
     let products = [];
     switch (category) {
-      case 'new':
+      case "new":
         products = getNewArrivals();
         break;
-      case 'sale':
+      case "sale":
         products = getSaleItems();
         break;
       default:
         products = getProductsByCategory(category);
         break;
     }
-    
-    console.log('Found products:', products.length);
+
+    console.log("Found products:", products.length);
     return products;
   }, [category]);
 
@@ -58,7 +58,7 @@ const CategoryPage = () => {
   const subcategories = useMemo(() => {
     if (!category) return [];
     const subs = getSubcategories(category);
-    console.log('Subcategories for', category, ':', subs);
+    console.log("Subcategories for", category, ":", subs);
     return subs;
   }, [category]);
 
@@ -68,12 +68,19 @@ const CategoryPage = () => {
       subcategory: selectedSubcategory,
       priceRange: selectedPriceRange,
       size: selectedSize,
-      color: selectedColor
+      color: selectedColor,
     });
-    
-    console.log('Filtered products:', filtered.length);
+
+    console.log("Filtered products:", filtered.length);
     return sortProducts(filtered, sortBy);
-  }, [allProducts, selectedSubcategory, selectedPriceRange, selectedSize, selectedColor, sortBy]);
+  }, [
+    allProducts,
+    selectedSubcategory,
+    selectedPriceRange,
+    selectedSize,
+    selectedColor,
+    sortBy,
+  ]);
 
   // Cart functions
   const handleAddToCart = (item: CartItem) => {
@@ -107,7 +114,7 @@ const CategoryPage = () => {
   const handleRemoveItem = (index: number) => {
     const updatedItems = cartItems.filter((_, i) => i !== index);
     setCartItems(updatedItems);
-    
+
     toast({
       title: "Item removed",
       description: "Item has been removed from your cart.",
@@ -122,31 +129,31 @@ const CategoryPage = () => {
   };
 
   const handleClearFilters = () => {
-    setSelectedSubcategory('');
-    setSelectedPriceRange('');
-    setSelectedSize('');
-    setSelectedColor('');
+    setSelectedSubcategory("");
+    setSelectedPriceRange("");
+    setSelectedSize("");
+    setSelectedColor("");
   };
 
   const handleProductClick = (product: Product) => {
-    console.log('Navigating to product:', product.id);
+    console.log("Navigating to product:", product.id);
     navigate(`/product/${product.id}`);
   };
 
   const getCategoryTitle = () => {
     switch (category) {
-      case 'women':
+      case "women":
         return "Women's Collection";
-      case 'men':
+      case "men":
         return "Men's Collection";
-      case 'accessories':
-        return 'Accessories';
-      case 'new':
-        return 'New Arrivals';
-      case 'sale':
-        return 'Sale';
+      case "accessories":
+        return "Accessories";
+      case "new":
+        return "New Arrivals";
+      case "sale":
+        return "Sale";
       default:
-        return 'Products';
+        return "Products";
     }
   };
 
@@ -155,7 +162,10 @@ const CategoryPage = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Category Not Found</h1>
-          <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">
+          <button
+            onClick={() => navigate("/")}
+            className="text-blue-600 hover:underline"
+          >
             Back to Home
           </button>
         </div>
@@ -170,7 +180,9 @@ const CategoryPage = () => {
       {/* Category Header */}
       <div className="bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-light mb-4 tracking-tight">{getCategoryTitle()}</h1>
+          <h1 className="text-4xl font-light mb-4 tracking-tight">
+            {getCategoryTitle()}
+          </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Discover our curated selection of premium pieces
           </p>
@@ -198,8 +210,12 @@ const CategoryPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {filteredAndSortedProducts.length === 0 ? (
           <div className="text-center py-12">
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
-            <p className="text-gray-600 mb-4">Try adjusting your filters or browse all products</p>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              No products found
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Try adjusting your filters or browse all products
+            </p>
             <button
               onClick={handleClearFilters}
               className="text-blue-600 hover:underline"
@@ -211,7 +227,8 @@ const CategoryPage = () => {
           <>
             <div className="flex justify-between items-center mb-6">
               <p className="text-gray-600">
-                Showing {filteredAndSortedProducts.length} product{filteredAndSortedProducts.length !== 1 ? 's' : ''}
+                Showing {filteredAndSortedProducts.length} product
+                {filteredAndSortedProducts.length !== 1 ? "s" : ""}
               </p>
             </div>
 
@@ -239,15 +256,15 @@ const CategoryPage = () => {
                         SALE
                       </span>
                     )}
-                    
+
                     {/* Hover Image */}
-                    {product.images[1] && (
+                    {/* {product.images[1] && (
                       <img
                         src={product.images[1]}
                         alt={product.name}
                         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       />
-                    )}
+                    )} */}
                   </div>
 
                   {/* Product Info */}
@@ -259,10 +276,10 @@ const CategoryPage = () => {
                       {product.subcategory || product.category}
                     </p>
                     <div className="flex items-center space-x-2">
-                      <span className="font-medium">${product.price}</span>
+                      <span className="font-medium">₹{product.price}</span>
                       {product.originalPrice && (
                         <span className="text-sm text-gray-500 line-through">
-                          ${product.originalPrice}
+                          ₹{product.originalPrice}
                         </span>
                       )}
                     </div>

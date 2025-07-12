@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => handleNavigation('/')}>
-            <h1 className="text-2xl font-bold tracking-tight">LUXE</h1>
+            <h1 className="text-2xl font-bold tracking-tight">AUREL</h1>
           </div>
 
           {/* Desktop Navigation */}

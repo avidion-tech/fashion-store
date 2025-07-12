@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
@@ -8,9 +7,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold tracking-tight">LUXE</h3>
+            <h3 className="text-2xl font-bold tracking-tight">AUREL</h3>
             <p className="text-gray-400">
-              Premium fashion for the modern individual. Crafted with attention to detail and designed for lasting style.
+              Premium fashion for the modern individual. Crafted with attention
+              to detail and designed for lasting style.
             </p>
           </div>
 
@@ -18,10 +18,26 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-medium tracking-wide">CUSTOMER SERVICE</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Size Guide</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Shipping & Returns</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+              <li>
+                <div className="cursor-pointer hover:text-white transition-colors">
+                  Contact Us
+                </div>
+              </li>
+              <li>
+                <div className="cursor-pointer hover:text-white transition-colors">
+                  Size Guide
+                </div>
+              </li>
+              <li>
+                <div className="cursor-pointer hover:text-white transition-colors">
+                  Shipping & Returns
+                </div>
+              </li>
+              <li>
+                <div className="cursor-pointer hover:text-white transition-colors">
+                  FAQ
+                </div>
+              </li>
             </ul>
           </div>
 
@@ -29,10 +45,24 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-medium tracking-wide">COMPANY</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Sustainability</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Press</a></li>
+              <li>
+                <div className="cursor-pointer hover:text-white transition-colors">
+                  About Us
+                </div>
+              </li>
+              <li>
+                <div className="cursor-pointer hover:text-white transition-colors">
+                  Careers
+                </div>
+              </li>
+              <li>
+                <div className="cursor-pointer hover:text-white transition-colors">
+                  Sustainability
+                </div>
+              </li>
+              <li>
+                <div className="hover:text-white transition-colors">Press</div>
+              </li>
             </ul>
           </div>
 
@@ -56,10 +86,16 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© 2024 LUXE. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">
+            © 2025 AUREL. All rights reserved.
+          </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+            <div className="cursor-pointer text-gray-400 hover:text-white text-sm">
+              Privacy Policy
+            </div>
+            <div className="cursor-pointer text-gray-400 hover:text-white text-sm">
+              Terms of Service
+            </div>
           </div>
         </div>
       </div>
