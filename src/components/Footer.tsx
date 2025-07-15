@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold tracking-tight">AUREL</h3>
@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
 
           {/* Company */}
-          <div className="space-y-4">
+          <div className="space-y-4 ">
             <h4 className="font-medium tracking-wide">COMPANY</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
@@ -76,9 +76,9 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-white"
+                className="placeholder:text-sm px-2 md:px-3 py-2 bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-white"
               />
-              <button className="px-4 py-2 bg-white text-black hover:bg-gray-200 transition-colors">
+              <button className="text-xs md:text-sm px-2 md:px-4 py-2 bg-white text-black hover:bg-gray-200 transition-colors">
                 SUBSCRIBE
               </button>
             </div>

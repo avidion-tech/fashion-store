@@ -129,7 +129,7 @@ export const products = [
     name: "Chino Pants",
     price: 2999,
     images: [
-      "https://images.unsplash.com/photo-1506629905607-e9e2c4d61fcd?w=500",
+      "/product-images/chino-pants.svg",
       "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=500",
     ],
     category: "men",
